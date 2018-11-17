@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="stylesheet.css">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            height: 100vh;
+            margin:0;
+        }
+
+        #calculatorBody{
+            background-color:indigo;
+            height:80%;
+            max-width:250px;
+
+        }
+        p{
+            cursor:pointer;
+        }
+        #displaypanel{
+            background-color:lavender;
+            border: 10px solid plum;
+            border-radius:25px;
+            height:15vh;
+        }
+
+        #buttonBody{
+           
+        }
+
+        .operatorbutton{
+            background-color:lightpink;
+            font-family:'Montserrat', sans-serif;
+            color:black;
+            font-style:bold;
+            font-size:2rem;
+        }
+
+        .numberbutton{
+            background-color:lightseagreen;
+            font-family:'Montserrat', sans-serif;
+            color:black;
+            font-style:bold;
+            font-size:2rem;
+        }
+
+        .cleanbutton{
+            color:lightblue;
+            background-color:lightsalmon;
+            font-family:'Montserrat',sans-serif;
+            font-size:2rem;
+        }
+
+        .additionbutton{
+            padding:17px 0px;
+            font-size:2rem;
+        }
+
+        .row{
+            margin-top: 5px;
+            margin-bottom:5px
+        }
+     
+    </style>
+
+</head>
+
+
+
+<body>
+
+        <h2>CHRISTINE'S CALCULATOR</h2>
+     
+    <section class="container text-center">
+        <div class="row">
+            <div id="calculatorBody" class="col-xs-4 col-xs-offset-4">Body
+                <div class="row">
+                    <div id="displaypanel" class="col-xs-12">LearningFuze</div>
+                </div>
+                <div class="row">
+                    <div id="buttonBody" class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-9 numberscontainer">
+                                <div class="row">
+                                    <div class="clearbutton col-xs-6">
+                                        <p data item="C" data-type="operator" id="Cbutton"class="cleanbutton">C</p>  
+                                    </div>
+                                    <div id="CEbutton" class="col-xs-6">
+                                     <p data-item="CE" data-type="operator" id="clearentrybutton"class="cleanbutton">CE</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="numbers" class="col-xs-4"><p data-item="7" data-type="number" id="button7" class="numberbutton">7</p></div>
+                                    <div id="numbers" class="col-xs-4 "><p data-item="8" data-type="number" id= "button8"class="numberbutton">8</p></div>
+                                    <div id="numbers" class="col-xs-4"><p data-item="9" data-type="number" id= "button9"class="numberbutton">9</p> </div>
+                                </div>
+                                <div class="row">
+                                    <div id="numbers" class="col-xs-4"><p data-item="4" data-type="number"   id="button4" class="numberbutton">4</p></div>
+                                     <div id="numbers" class="col-xs-4"><p data-item="5" data-types="number" id="button5" class="numberbutton">5</p></div>
+                                    <div id="numbers" class="col-xs-4"><p data-item="6" data-types="number"   id="button6" class="numberbutton">6</p></div>
+                                </div>
+                                <div class="row">
+                                    <div id="numbers" class="col-xs-4"><p data-item="1" data-type="number"  id="button1" class="numberbutton" >1</p></div>
+                                     <div id="numbers" class="col-xs-4"><p data-item="2" data-type="number" id="button2" class="numberbutton" >2</p></div>
+                                     <div id="numbers" class="col-xs-4"><p data-item="3" data-type="number" id="button3" class="numberbutton" >3</p></div>
+                                </div>
+                                <div class="row">
+                                     <div id="numbers" class="col-xs-4"><p data-item="0" data-type="number"  id="button0" class="numberbutton">0</div>
+                                     <div id="numbers" class="col-xs-4"><p data-item="." data-type="number" id="decimalButton" class="numberbutton">.</div>
+                                    <div id="numbers" class="col-xs-4"><p  data-item="=" data-type="operator" id="equalButton" class="numberbutton">=</div>
+                                </div>
+                        
+                            </div>
+                            <div class="col-xs-3" id="operatorcontainer">
+                                <div class="row">
+                                    <div id="operatordivide" class="col-xs-12"><p data-item="/" data-type="operator" id="divideButton" class="operatorbutton">/</p></div>
+                                </div>
+                                <div class="row">
+                                    <div id="operatorX" class="col-xs-12"><p data-item="*" data-type="operator" id="multiplyButton" class="operatorbutton">X</p></div>
+                                </div>
+                                <div class="row">
+                                    <div id="operator-" class="col-xs-12"><p data-item="-" data-type="operator" id="subtractButton" class="operatorbutton">-</p></div>
+                                </div>
+                                <div class="row">
+                                    <div id="operator+"class="col-xs-12"><p data-item="+" data-type="operator" id="additionButton" class="operatorbutton">+</p></div>
+                                </div>
+
+                            </div>
+                       
+                    </div>
+
+                </div>
+
+                
+               
+            </div>
+        </div>
+        
+
+    </section>
+    <script src="main.js"></script>
+</body>
+
+
+</html>

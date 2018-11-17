@@ -1,0 +1,21 @@
+body{
+    background-color:lavenderblush;
+    position:relative;
+
+}
+
+h2{
+    text-shadow: 2px 2px 3px pink;
+    text-align:center;
+    font-family:'Dancing Script', cursive;
+    font-size: 30px;
+    color:indigo;
+}
+
+h3{
+    font: size 15px;
+    color:lavender;
+    font-family:'arial';
+    text-align:center;
+    position:absolute;
+}
