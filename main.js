@@ -116,11 +116,12 @@ function currentButtonPressed(currentNum, currentType) {
     }
 
     else if (currentNum !== '=') {
-			equation.push(numbers);
-            equation.push(currentNum);
-            operator = '';
-            numbers='';
-           
+        if(numbers){  
+            equation.push(numbers);
+        }    
+        equation.push(currentNum);
+        operator = '';
+        numbers='';   
         }
         else {
             equation.push(numbers);
@@ -133,6 +134,7 @@ function currentButtonPressed(currentNum, currentType) {
 
 function evaluateEquation(){
     sanitizeArray();
+    equation = multipleOperations(equation);
     for (var i = 0; i < equation.length; i++){
     var currentNum = equation[i];
     if(evaluateCounter === 1){
@@ -215,4 +217,22 @@ function isOperator(input){
     } else{
         return false;
     }
+}
+
+function multipleOperations(input){
+    var fixedInputArray = [input[0]];
+    var currentNumber = '';
+    var currentOperatorTempInput = '';
+    for(var i =1; i <input.length; i++){
+       var currentValue = input[i];
+        if( !isOperator(currentValue)){
+            currentNumber = currentValue;
+           fixedInputArray.push(currentOperatorTempInput);
+           fixedInputArray.push(currentNumber);
+        }
+        else{
+            currentOperatorTempInput = currentValue;
+        }
+    }
+     return fixedInputArray;
 }
