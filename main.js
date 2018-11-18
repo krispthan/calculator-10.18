@@ -236,3 +236,8 @@ function multipleOperations(input){
     }
      return fixedInputArray;
 }
+
+
+    function operationRepeatRollover(input){
+        
+    }
