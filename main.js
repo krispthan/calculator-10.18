@@ -9,7 +9,8 @@ var result;
 var numbers = '';
 var equation = [];
 var evaluateCounter = 1;
-
+var tempSuccessiveOperatorElement = '';
+var tempSuccessiveNumberElement='';
 
 $('#equalButton').click(function(){
     currentButtonPressed('=','operator');
@@ -36,7 +37,7 @@ $('#button5').click(function() {
 });
 
 $('#button4').click(function() {
-	currentButtonPressed('4', "number'");
+	currentButtonPressed('4', 'number');
 });
 
 $('#button3').click(function() {
@@ -148,7 +149,7 @@ function evaluateEquation(){
         console.log(evaluateCounter);
     } 
     else{
-        evaluateCounter = 1;
+        evaluateCounter = 2;
         num2 = currentNum;
         if(isDivideByZero(num2,operator)){
             equation=[];
@@ -237,7 +238,3 @@ function multipleOperations(input){
      return fixedInputArray;
 }
 
-
-    function operationRepeatRollover(input){
-        
-    }
