@@ -115,7 +115,16 @@ function currentButtonPressed(currentNum, currentType) {
             numbers='';
             displayCalculator();
     }
-
+    else if(currentNum ==='CE'){
+        if(numbers.length > 0){
+            numbers = numbers.substr(0, numbers.length -1);
+        }
+        else if(equation.length > 0){
+            equation = equation.slice(0, equation.length -1);
+        }
+        displayCalculator();
+        return;
+    }
     else if (currentNum !== '=') {
         if(numbers){  
             equation.push(numbers);
