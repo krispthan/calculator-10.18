@@ -9,7 +9,8 @@ var result;
 var numbers = '';
 var equation = [];
 var evaluateCounter = 1;
-
+var tempSuccessiveOperatorElement = '';
+var tempSuccessiveNumberElement='';
 
 $('#equalButton').click(function(){
     currentButtonPressed('=','operator');
@@ -36,7 +37,7 @@ $('#button5').click(function() {
 });
 
 $('#button4').click(function() {
-	currentButtonPressed('4', "number'");
+	currentButtonPressed('4', 'number');
 });
 
 $('#button3').click(function() {
@@ -114,13 +115,23 @@ function currentButtonPressed(currentNum, currentType) {
             numbers='';
             displayCalculator();
     }
-
+    else if(currentNum ==='CE'){
+        if(numbers.length > 0){
+            numbers = numbers.substr(0, numbers.length -1);
+        }
+        else if(equation.length > 0){
+            equation = equation.slice(0, equation.length -1);
+        }
+        displayCalculator();
+        return;
+    }
     else if (currentNum !== '=') {
-			equation.push(numbers);
-            equation.push(currentNum);
-            operator = '';
-            numbers='';
-           
+        if(numbers){  
+            equation.push(numbers);
+        }    
+        equation.push(currentNum);
+        operator = '';
+        numbers='';   
         }
         else {
             equation.push(numbers);
@@ -133,6 +144,7 @@ function currentButtonPressed(currentNum, currentType) {
 
 function evaluateEquation(){
     sanitizeArray();
+    equation = multipleOperations(equation);
     for (var i = 0; i < equation.length; i++){
     var currentNum = equation[i];
     if(evaluateCounter === 1){
@@ -146,7 +158,7 @@ function evaluateEquation(){
         console.log(evaluateCounter);
     } 
     else{
-        evaluateCounter = 1;
+        evaluateCounter = 2;
         num2 = currentNum;
         if(isDivideByZero(num2,operator)){
             equation=[];
@@ -216,3 +228,22 @@ function isOperator(input){
         return false;
     }
 }
+
+function multipleOperations(input){
+    var fixedInputArray = [input[0]];
+    var currentNumber = '';
+    var currentOperatorTempInput = '';
+    for(var i =1; i <input.length; i++){
+       var currentValue = input[i];
+        if( !isOperator(currentValue)){
+            currentNumber = currentValue;
+           fixedInputArray.push(currentOperatorTempInput);
+           fixedInputArray.push(currentNumber);
+        }
+        else{
+            currentOperatorTempInput = currentValue;
+        }
+    }
+     return fixedInputArray;
+}
+
